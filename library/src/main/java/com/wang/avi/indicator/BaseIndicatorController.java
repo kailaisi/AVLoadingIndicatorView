@@ -9,7 +9,7 @@ import com.nineoldandroids.animation.Animator;
 import java.util.List;
 
 /**
- * 控制器，控制动画的生成、显示、停止以及view的绘制，和indicatorview进行交互，具体的实现由子类实现
+ * 基类，控制动画的生成、显示、停止以及view的绘制，和indicatorview进行交互，具体的实现由子类实现
  * Created by Jack on 2015/10/15.
  */
 public abstract class BaseIndicatorController {
