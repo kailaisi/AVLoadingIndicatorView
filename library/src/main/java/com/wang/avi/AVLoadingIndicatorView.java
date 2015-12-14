@@ -72,7 +72,7 @@ import com.wang.avi.indicator.TriangleSkewSpinIndicator;
  .Pacman,
  .BallGridBeat,
  .SemiCircleSpin
- *
+ *增加了自己的注释
  */
 public class AVLoadingIndicatorView extends View{
 
