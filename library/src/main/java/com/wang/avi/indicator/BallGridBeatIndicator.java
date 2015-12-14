@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * 。
  * Created by Jack on 2015/10/20.
  */
 public class BallGridBeatIndicator extends BaseIndicatorController {

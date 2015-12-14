@@ -177,11 +177,16 @@ public class AVLoadingIndicatorView extends View{
         init(attrs, defStyleAttr);
     }
 
+    /**
+     * 获取xml文件中的相关属性
+     * @param attrs
+     * @param defStyle
+     */
     private void init(AttributeSet attrs, int defStyle) {
         TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.AVLoadingIndicatorView);
         mIndicatorId=a.getInt(R.styleable.AVLoadingIndicatorView_indicator, BallPulse);
         mIndicatorColor=a.getColor(R.styleable.AVLoadingIndicatorView_indicator_color, Color.WHITE);
-        a.recycle();
+        a.recycle();//TypedArray使用了池对象，需要进行回收
         mPaint=new Paint();
         mPaint.setColor(mIndicatorColor);
         mPaint.setStyle(Paint.Style.FILL);
@@ -286,6 +291,12 @@ public class AVLoadingIndicatorView extends View{
         setMeasuredDimension(width, height);
     }
 
+    /**
+     * 获取测量宽高
+     * @param defaultSize  默认值
+     * @param measureSpec   测量规则
+     * @return  int
+     */
     private int measureDimension(int defaultSize,int measureSpec){
         int result = defaultSize;
         int specMode = MeasureSpec.getMode(measureSpec);
@@ -315,6 +326,10 @@ public class AVLoadingIndicatorView extends View{
         }
     }
 
+    /**
+     * 可见性改变的得时候调用，设置动画的启动或者结束
+     * @param v
+     */
     @Override
     public void setVisibility(int v) {
         if (getVisibility() != v) {
@@ -327,17 +342,26 @@ public class AVLoadingIndicatorView extends View{
         }
     }
 
+    /**
+     *VIew销毁的时候执行的操作，结束动画
+     */
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         mIndicatorController.setAnimationStatus(BaseIndicatorController.AnimStatus.CANCEL);
     }
 
-
+    /**
+     * 绘制图形
+     * @param canvas
+     */
     void drawIndicator(Canvas canvas){
         mIndicatorController.draw(canvas,mPaint);
     }
 
+    /**
+     * 设置动画效果
+     */
     void applyAnimation(){
         mIndicatorController.initAnimation();
     }
